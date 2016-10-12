@@ -1,0 +1,2 @@
+# 55 20 * * * /bin/run.sh
+*/1 * * * * /bin/run.sh
