@@ -2,8 +2,10 @@ FROM gliderlabs/alpine:3.3
 
 MAINTAINER Takeru Sato <midium.size@gmail.com>
 
+COPY boto /root/.boto
 COPY run.sh /bin/run.sh
 COPY crontabs/root /root/crontabs/root
+
 #install deps and install gsutil
 RUN apk add --update \
     python \
@@ -21,7 +23,5 @@ RUN apk add --update \
   && pip install gsutil \
   && apk del build-deps \
   && rm -rf /var/cache/apk/*
-
-RUN echo "[GoogleCompute]\nservice_account = default" >> /root/.boto
 
 CMD /bin/run.sh && crond -f -c /root/crontabs
