@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.3
+FROM gliderlabs/alpine:3.4
 
 MAINTAINER Takeru Sato <midium.size@gmail.com>
 
@@ -13,7 +13,7 @@ RUN apk add --update \
     py-cffi \
     py-cryptography \
   && pip install --upgrade pip \
-  && apk add --virtual build-deps \
+  && apk add --no-cache --virtual build-deps \
     gcc \
     libffi-dev \
     python-dev \
@@ -21,7 +21,6 @@ RUN apk add --update \
     musl-dev \
     openssl-dev \
   && pip install gsutil \
-  && apk del build-deps \
-  && rm -rf /var/cache/apk/*
+  && apk del build-deps
 
-CMD /bin/run.sh && crond -f -c /root/crontabs
+CMD /bin/run.sh && exec crond -f -c /root/crontabs
