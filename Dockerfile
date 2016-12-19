@@ -22,6 +22,7 @@ RUN apk add --update \
     musl-dev \
     openssl-dev \
   && pip install gsutil \
-  && apk del build-deps
+  && apk del build-deps \
+  && chmod 755 /bin/gsutil_wrapper
 
 ENTRYPOINT ["/bin/run.sh"]
