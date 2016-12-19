@@ -4,6 +4,7 @@ MAINTAINER Takeru Sato <midium.size@gmail.com>
 
 COPY boto /root/.boto
 COPY run.sh /bin/run.sh
+COPY gsutil_wrapper.sh /bin/gsutil_wrapper
 COPY crontabs/root /root/crontabs/root
 
 #install deps and install gsutil
@@ -23,4 +24,4 @@ RUN apk add --update \
   && pip install gsutil \
   && apk del build-deps
 
-CMD /bin/run.sh && exec crond -f -c /root/crontabs
+ENTRYPOINT ["/bin/run.sh"]
