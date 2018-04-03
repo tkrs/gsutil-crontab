@@ -1,6 +1,6 @@
-FROM gliderlabs/alpine:3.4
+FROM alpine:3.7
 
-MAINTAINER Takeru Sato <midium.size@gmail.com>
+MAINTAINER Takeru Sato <type.in.type@gmail.com>
 
 COPY boto /root/.boto
 COPY run.sh /bin/run.sh
