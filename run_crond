@@ -8,7 +8,7 @@ prepare() {
 }
 
 run_gsutil() {
-  /bin/gsutil_wrapper "$@"
+  /usr/local/bin/gsutil_wrapper "$@"
 }
 
 main() {
