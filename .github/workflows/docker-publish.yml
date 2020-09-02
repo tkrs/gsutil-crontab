@@ -42,5 +42,5 @@ jobs:
           username: ${{ secrets.QUAY_USER }}
           password: ${{ secrets.QUAY_TOKEN }}
           registry: quay.io
-          repository: quay.io/${{ secrets.QUAY_USER }}/gsutil-crontab
+          repository: ${{ secrets.QUAY_USER }}/gsutil-crontab
           tag_with_ref: true
